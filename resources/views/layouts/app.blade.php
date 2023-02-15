@@ -19,23 +19,37 @@
                     <a href="">Dashboard</a>
                 </li>
                 <li class="p-3">
-                    <a href="">Post</a>
+                    <a href="{{route('posts')}}">Post</a>
                 </li>
             </ul>
 
             <ul class="flex items-center">
+                @auth
                 <li class="p-3">
                     <a href="">Ismail Amaan</a>
                 </li>
-                <li class="p-3">
-                    <a href="">Login</a>
-                </li>
-                <li class="p-3">
-                    <a href="">Register</a>
-                </li>
+
                 <li class="p-3">
                     <a href="">Logout</a>
                 </li>
+
+                @endauth
+
+                @guest
+
+                <li class="p-3">
+                    <a href="{{route('login')}}">Login</a>
+                </li>
+                <li class="p-3">
+                    <a href="{{route('register')}}">Register</a>
+                </li>
+
+                @endguest
+
+
+               
+                
+                
             </ul>
         </nav>
         @yield('content')
