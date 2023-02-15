@@ -13,10 +13,10 @@
         <nav class="p-6 bg-white flex justify-between mb-6">
             <ul class="flex items-center">
                 <li class="p-3">
-                    <a href="">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li class="p-3">
-                    <a href="">Dashboard</a>
+                    <a href="{{route('dashboard')}}">Dashboard</a>
                 </li>
                 <li class="p-3">
                     <a href="{{route('posts')}}">Post</a>
@@ -26,11 +26,16 @@
             <ul class="flex items-center">
                 @auth
                 <li class="p-3">
-                    <a href="">Ismail Amaan</a>
+                    <a href="">{{auth()->user()->name}}</a>
                 </li>
 
                 <li class="p-3">
-                    <a href="">Logout</a>
+                    <form action="{{route('logout')}}" method="post" class="inline">
+                        @csrf
+                        <button type="submit" >Logout</button>
+
+                    </form>
+                    
                 </li>
 
                 @endauth
